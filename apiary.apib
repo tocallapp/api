@@ -7,10 +7,6 @@ An API to query the best time(s) to call a phone number.
 
 ## Phone [/api/v1/phone/{phone_number}]
 
-
-+ Parameters
-  + from (string) ... The phone number or IOS 8601 Timestamp of the originating caller
-
 + Model (application/json)
     + Body
 
@@ -42,6 +38,9 @@ An API to query the best time(s) to call a phone number.
 ### Get Next Best Time  [GET]
 
 By default, the `from` will be a ISO 8601 Timestamp of current API time in UTC
+
++ Parameters
+  + from (string) ... The phone number or IOS 8601 Timestamp of the originating caller
 
 + Response 200 (application/json)
 
@@ -86,10 +85,6 @@ Send preferred time to help the system learn.
     
     
 ## Phone Times [/api/v1/phone/{phone_number}/times]
-
-
-+ Parameters
-  + from (string) ... The phone number or IOS 8601 Timestamp of the originating caller
 
 + Model (application/json)
     + Body
@@ -157,6 +152,9 @@ Send preferred time to help the system learn.
 ### Get Available Times  [GET]
 
 By default, the `from` will be a ISO 8601 Timestamp of current API time in UTC
+
++ Parameters
+  + from (string) ... The phone number or IOS 8601 Timestamp of the originating caller
 
 + Response 200 (application/json)
 
