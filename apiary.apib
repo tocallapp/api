@@ -46,7 +46,7 @@ By default, the `from` will be a ISO 8601 Timestamp of current API time in UTC
 
     [Phone][]
 
-### Send a Best Time to Call: Time Range [POST]
+### Send a Time to (or not to) Call: Time Range [POST]
 
 Send preferred times in a range to help the system learn.
 
@@ -54,6 +54,7 @@ Send preferred times in a range to help the system learn.
 
         {
             "time": {
+                "best": true,
                 "range": ["08:00:00", "20:00:00"],
                 "day_of_week": ["Monday"],
                 "timezone": "America/Los_Angeles"
@@ -65,7 +66,7 @@ Send preferred times in a range to help the system learn.
     [Phone][]
     
 
-### Send a Best Time to Call: Single Time [POST]
+### Send a Time to (or not to) Call: Single Time [POST]
 
 Send preferred time to help the system learn.
 
@@ -73,6 +74,7 @@ Send preferred time to help the system learn.
 
         {
             "time": {
+                "best": false,itiv
                 "time": "08:00:00",
                 "day_of_week": ["Monday"],
                 "timezone": "America/Los_Angeles"
