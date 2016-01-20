@@ -65,6 +65,24 @@ Send preferred times in a range to help the system learn.
 
     [Phone][]
     
+
+### Send a Best Time to Call: Single Time [POST]
+
+Send preferred time to help the system learn.
+
++ Request (application/json)
+
+        {
+            "time": {
+                "time": "08:00:00",
+                "day_of_week": ["Monday"],
+                "timezone": "America/Los_Angeles"
+            }
+        }
+
++ Response 201 (application/json)
+
+    [Phone][]
     
     
 ## Phone Times [/api/v1/phone/{phone_number}/times]
@@ -143,6 +161,51 @@ By default, the `from` will be a ISO 8601 Timestamp of current API time in UTC
 + Response 200 (application/json)
 
     [Phone][]
+    
+    
+    
+
+## Email [/api/v1/email/{email}]
+
+
++ Parameters
+  + from (string) ... The email or IOS 8601 Timestamp of the originating person
+
++ Model (application/json)
+    + Body
+
+        {
+            "id": "95337de3-9c43-436a-b440-f12530a5335c",
+            "date_time": "2015-12-01T08:40:51",
+            "data": {
+                "from": {
+                    "timezones": [
+                        "America/Los_Angeles"
+                    ]
+                },
+                "to": {
+                    “email”: “drew@tocallapp.com”,
+                    "timezones": [
+                        "Pacific/Auckland"
+                    ]
+                },
+                "time": {
+                    "next": {
+                        "from": "2016-01-20T13:00:00+13:00",
+                        "to": "2016-01-20T08:00:00+08:00"
+                    }
+                }
+            }
+        }
+
+
+### Get Next Best Time  [GET]
+
+By default, the `from` will be a ISO 8601 Timestamp of current API time in UTC
+
++ Response 200 (application/json)
+
+    [Email][]
 
 ### Send a Best Time to Call: Time Range [POST]
 
@@ -160,4 +223,104 @@ Send preferred times in a range to help the system learn.
 
 + Response 201 (application/json)
 
-    [Phone][]
+    [Email][]
+    
+
+### Send a Best Time to Call: Single Time [POST]
+
+Send preferred time to help the system learn.
+
++ Request (application/json)
+
+        {
+            "time": {
+                "time": "08:00:00",
+                "day_of_week": ["Monday"],
+                "timezone": "America/Los_Angeles"
+            }
+        }
+
++ Response 201 (application/json)
+
+    [Email][]
+    
+    
+## Email Times [/api/v1/email/{email}/times]
+
+
++ Parameters
+  + from (string) ... The email or IOS 8601 Timestamp of the originating person
+
++ Model (application/json)
+    + Body
+
+        {
+            "id": "95337de3-9c43-436a-b440-f12530a5335c",
+            "date_time": "2015-12-01T08:40:51",
+            "data": {
+                "from": {
+                    "email": "drew@tocallapp.com",
+                    "timezones": [
+                        "Pacific/Auckland"
+                    ]
+                },
+                "to": {
+                    "number": "john@shanghai.cn",
+                    "timezones": [
+                        "Asia/Shanghai"
+                    ]
+                },
+                "times": {
+                    "next": {
+                        "from": "2016-01-20T13:00:00+13:00",
+                        "to": "2016-01-20T08:00:00+08:00"
+                    },
+                    "all": [
+                        {
+                            "from": "2016-01-20T13:00:00+13:00",
+                            "to": "2016-01-20T08:00:00+08:00"
+                        },
+                        {
+                            "from": "2016-01-20T14:00:00+13:00",
+                            "to": "2016-01-20T09:00:00+08:00"
+                        },
+                        {
+                            "from": "2016-01-20T15:00:00+13:00",
+                            "to": "2016-01-20T10:00:00+08:00"
+                        },
+                        {
+                            "from": "2016-01-20T16:00:00+13:00",
+                            "to": "2016-01-20T11:00:00+08:00"
+                        },
+                        {
+                            "from": "2016-01-20T17:00:00+13:00",
+                            "to": "2016-01-20T12:00:00+08:00"
+                        },
+                        {
+                            "from": "2016-01-20T18:00:00+13:00",
+                            "to": "2016-01-20T13:00:00+08:00"
+                        },
+                        {
+                            "from": "2016-01-20T19:00:00+13:00",
+                            "to": "2016-01-20T14:00:00+08:00"
+                        },
+                        {
+                            "from": "2016-01-20T20:00:00+13:00",
+                            "to": "2016-01-20T15:00:00+08:00"
+                        }
+                    ]
+               }
+            }
+        }
+
+
+### Get Available Times  [GET]
+
+By default, the `from` will be a ISO 8601 Timestamp of current API time in UTC
+
++ Response 200 (application/json)
+
+    [Email][]
+    
+    
+
